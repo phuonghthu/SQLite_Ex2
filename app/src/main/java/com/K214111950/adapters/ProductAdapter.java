@@ -62,6 +62,21 @@ public class ProductAdapter extends BaseAdapter {
         // binding data
         Product p = products.get(position);
         holder.txtInfo.setText(p.getProductName() + " - " + p.getProductPrice());
+        holder.imvEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // gọi phương thức chỉnh sửa
+                activity.openDialogEdit(p);
+            }
+        });
+
+        holder.imvDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // gọi phương thức xóa
+                activity.openDialogDelete(p);
+            }
+        });
 
         return view;
     }
